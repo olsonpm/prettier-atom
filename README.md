@@ -13,11 +13,19 @@
 [![PRs Welcome][prs-badge]][prs]
 
 Atom package to format your JavaScript, Typescript, CSS, Sass, and JSON using [Prettier](https://github.com/prettier/prettier).
-Comes with powerful optional [ESLint](http://eslint.org/) integration.
+Optionally integrates with [ESLint](http://eslint.org/), [EditorConfig](http://editorconfig.org/), and [stylelint](https://stylelint.io/).
+
+## How to use it
+
+After [installation](#installation) you are ready to use prettier in a way that suits your needs
+- Toggle 'format on save' to have prettier format your code upon saving
+- Run the command `Prettier: Format (Ctrl+Alt+F)` to format your file manually
+- By default, formatting will use your [prettier configuration](https://prettier.io/docs/en/configuration.html).
+  Otherwise it falls back to the prettier settings you chose in this plugin.
 
 ## Demo
 
-![prettier demo][prettier-demo]
+![prettier demo](initial-demo.gif)
 
 ## Installation
 
@@ -29,17 +37,24 @@ Or go to _Settings → Install_ and search for `prettier-atom`.
 
 Make sure to restart Atom after the package is installed.
 
-## Usage
+## Detailed Usage
 
 There are two modes you can use:
 
 * Invoke manually using the **keyboard shortcut** (if no selection, whole file is formatted): <kbd>CTRL</kbd> + <kbd>ALT</kbd> + <kbd>F</kbd>
 * Automatically **format on save** (requires enabling in _Packages → Prettier → Toggle Format on Save_)
 
+Note this plugin will default to using the prettier in your project's 'node_modules' directory.  If none is found then
+it falls back to using whatever version is installed with the plugin.
+
 If you use ESLint, check the "ESLint Integration" checkbox and \*poof\*, everything should work (we use Kent Dodds's [`prettier-eslint`][prettier-eslint] plugin under the hood).
 We will recursively search up the file tree for your `package.json` and ESLint settings, and use them when formatting.
 
 ![prettier-eslint demo][prettier-eslint-demo]
+
+Toggles are also available for editorconfig and stylelint integrations, where editorconfig support is
+[built into prettier](https://prettier.io/blog/2017/12/05/1.9.0.html#add-editorconfig-support-3255-https-githubcom-prettier-prettier-pull-3255-by-josephfrazier-https-githubcom-josephfrazier)
+and stylelint is supported via [prettier-stylelint](https://github.com/hugomrdias/prettier-stylelint).
 
 More detailed descriptions of each option can be found in the Atom settings for this plugin.
 
